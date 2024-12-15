@@ -40,7 +40,6 @@ export async function POST(req:NextRequest){
             token,
             {
             httpOnly:true
-
         })
         
         return response

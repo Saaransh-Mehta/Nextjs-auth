@@ -7,7 +7,7 @@ import {toast,Toast, Toaster} from 'react-hot-toast'
 export default function LoginPage(){
     const [email,setEmail] = useState("")
     const [password,setPassword] = useState("")
-    const Router = useRouter()
+    const router = useRouter()
     const onLogin = async()=>{
         try {
             const res = await axios.post("/api/users/login",{
@@ -15,7 +15,7 @@ export default function LoginPage(){
                 password
             })
             console.log(res.data)
-            Router.push("/profile")
+            router.push("/profile")
         } catch (error:any) {
            toast.error(error.message)
         }

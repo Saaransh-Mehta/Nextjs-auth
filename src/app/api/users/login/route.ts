@@ -6,6 +6,8 @@ import bcryptjs from 'bcryptjs'
 import jwt from 'jsonwebtoken'
 import { cookies } from "next/headers";
 
+connect()
+console.log("Database connected")
 export async function POST(req:NextRequest){
     try {
         const reqBody =await req.json()
@@ -14,7 +16,7 @@ export async function POST(req:NextRequest){
             console.error("Error occured becuase respective field are not filled")
         }
         
-        const exisitingUser = await User.findOne({email})
+        const exisitingUser = await User.findOne({email:email})
         if(!exisitingUser){
             console.error("User not found please SignUp")
         }

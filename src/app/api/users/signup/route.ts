@@ -2,6 +2,7 @@ import connect from "@/db/db";
 import {User} from '@/models/userModels'
 import { NextRequest,NextResponse } from "next/server";
 import bcryptjs from 'bcryptjs'
+import { sendEmail } from "@/helpers/mailer";
 // import { error } from "console";
 // import cors from "@/middleware";
 
@@ -39,6 +40,7 @@ export async function POST(req:NextRequest){
         email
      })
      
+     await sendEmail({email,emailType:"VERIFY",userId:newUser._id})
 
      return NextResponse.json({message:"User created successfully",newUser}, {status:200})
 

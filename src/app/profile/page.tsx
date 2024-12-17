@@ -6,7 +6,7 @@ import toast, { Toaster } from 'react-hot-toast'
 import { useRouter } from 'next/navigation'
 
 const page = () => {
-  const [user,setUser] = useState({})
+  const [user,setUser]:any = useState({})
   const router = useRouter()
   const onLogout = async()=>{
     try {
